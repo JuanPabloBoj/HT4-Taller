@@ -11,10 +11,21 @@ export class ProductoService{
     async crear(producto: Productos): Promise<void>{
         try {
             const productos = await this.repository.obtenerProductos();
+
             const existe = productos.some(p => p.id === producto.id);
             
             if(existe){
                 console.log("Ya existe un producto con ese ID.");
+                return;
+            }
+
+              if(producto.precio < 0){
+                console.log("Error, el precio no puede ser negativo.");
+                return;
+            }
+
+            if(producto.stock < 0){
+                console.log("Error, el stock no debe ser negativo.");
                 return;
             }
 
@@ -39,6 +50,16 @@ export class ProductoService{
 
             if(indice === -1){
                 console.log("No existe un producto con ese ID.");
+                return;
+            }
+
+              if(producto.precio < 0){
+                console.log("Error, el precio no puede ser negativo.");
+                return;
+            }
+
+            if(producto.stock < 0){
+                console.log("Error, el stock no debe ser negativo.");
                 return;
             }
 

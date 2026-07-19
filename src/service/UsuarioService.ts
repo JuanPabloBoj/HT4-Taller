@@ -4,6 +4,11 @@ import { Usuario } from "../models/Usuario";
 export class UsuarioService {
     private repository = new UsuarioRepository();
 
+    private validarEmail(email:string): boolean{
+        const dominio = /^[\w\.-]+@(gmail|hotmail|outlook)\com$/i;
+        return dominio.test(email);
+    }
+
     //Listar
     async listar(): Promise<Usuario[]> {
         return await this.repository.obtenerUsuarios();
@@ -13,10 +18,26 @@ export class UsuarioService {
     async agregar(usuario: Usuario): Promise<void> {
         try {
             const usuarios = await this.repository.obtenerUsuarios();
+
             const existe = usuarios.some(u => u.id === usuario.id);
 
             if(existe){
                 console.log("Ya existe un usuario con ese ID.");
+                return;
+            }
+            
+            if(!this.validarEmail(usuario.email)){
+                console.log(`ERROR. El correo: ${usuario.email} no es valido. Usar solo @gmail, @hotmail o @outlook`);
+                return;
+            }
+
+            if(usuario.edad < 18){
+                console.log("Error, solo pueden ingresar usuarios mayores de edad.");
+                return;
+            }
+
+            if(usuario.saldo < 0){
+                console.log("Error, el saldo no debe ser negativo.")
                 return;
             }
 
@@ -46,6 +67,21 @@ export class UsuarioService {
             console.log("No existe un usuario con ese ID.");
             return;
         }
+        
+            if(!this.validarEmail(usuario.email)){
+                console.log(`ERROR. El correo: ${usuario.email} no es valido. Usar solo @gmail, @hotmail o @outlook`);
+                return;
+            }
+
+            if(usuario.edad < 18){
+                console.log("Error, solo pueden ingresar usuarios mayores de edad.");
+                return;
+            }
+
+            if(usuario.saldo < 0){
+                console.log("Error, el saldo no debe ser negativo.")
+                return;
+            }
 
         usuarios[indice] = usuario;
 
