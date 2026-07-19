@@ -8,6 +8,7 @@ export interface Usuario {
     edad:number,
     email:string,
     contrasena:number,
+    saldo: number,
     rol: Rol,
     estado: Estado
 }

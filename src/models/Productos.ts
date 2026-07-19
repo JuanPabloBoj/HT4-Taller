@@ -1,5 +1,5 @@
 import { Categoria } from "./Categoria"
-import { Estado } from "./EstadoUsuario";
+import { Estado } from "./EstadoProducto";
 import { Proveedor } from "./Proveedor";
 
 export interface Productos{

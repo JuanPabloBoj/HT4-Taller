@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "nombreProveedor": "Cruz Roja",
+        "correoProveedor": "cruzroja@gmail.com",
+        "registroSanitario": "VERIFICADO",
+        "estado": "ACTIVO"
+    }
+]

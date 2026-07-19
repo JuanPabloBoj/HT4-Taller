@@ -74,4 +74,17 @@ export class UsuarioService {
             console.log("Error al eliminar.");
         }
     }
+
+    async login(nombreUsuario: string, contrasena: number): Promise<Usuario | undefined> {
+        try {
+            const usuarios = await this.repository.obtenerUsuarios();
+
+            const usuarioValido = usuarios.find(u => u.nombre.toLowerCase() === nombreUsuario.toLowerCase() && u.contrasena === contrasena);
+
+            return usuarioValido;
+        } catch (error) {
+            console.log("Error al realizar el login.")
+            throw error;
+        }
+    }
 }

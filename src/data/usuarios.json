@@ -1,1 +1,24 @@
-[]
+[
+    {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Boj",
+        "edad": 19,
+        "email": "juanboj@gmail.com",
+        "contrasena": 12345,
+        "saldo": 12000.2,
+        "rol": "ADMIN",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 2,
+        "nombre": "Pepe",
+        "apellido": "Aguilar",
+        "edad": 26,
+        "email": "pepe@gmail.com",
+        "contrasena": 12345,
+        "saldo": 1836.7,
+        "rol": "USER",
+        "estado": "ACTIVO"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "nombreProducto": "Acetaminofen",
+        "descripcion": "Producto medico.",
+        "stock": 180,
+        "precio": 15.5,
+        "categoria": "ANALGESICOS",
+        "estado": "DISPONIBLE",
+        "proveedor": {
+            "id": 1,
+            "nombreProveedor": "Cruz Roja",
+            "correoProveedor": "cruzroja@gmail.com",
+            "registroSanitario": "VERIFICADO",
+            "estado": "ACTIVO"
+        }
+    }
+]
